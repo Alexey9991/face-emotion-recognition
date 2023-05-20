@@ -88,35 +88,3 @@ jobs:
       run: python emotion_recognition_script.py --model-path path/to/trained/model
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"""name: Demo workflow
-on: workflow_dispatch
-jobs: 
-  print_demo: 
-    runs-on: ubuntu-latest
-    steps:
-    - name: Print to console 
-      run: echo  Hello GH Actions !
-    - name: Print a few lines
-      run: |
-        echo First line!
-        echo second line!
-"""
