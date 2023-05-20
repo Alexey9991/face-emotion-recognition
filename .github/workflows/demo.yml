@@ -3,7 +3,9 @@ name: Demo
 on:
   push:
     branches:
-      branches["main","dev"]
+      - main
+      - dev
+      
 
   workflow_dispatch:
 
