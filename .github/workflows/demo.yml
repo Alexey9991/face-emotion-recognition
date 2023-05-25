@@ -11,6 +11,7 @@ on:
 
 jobs:
   job1:
+    name: job 1
     data_processing_for_dataset:
       runs-on: ubuntu-latest
 
@@ -91,6 +92,7 @@ jobs:
         run: python emotion_recognition_script.py --model-path path/to/trained/model
 
   job2:
+    name: job 2
     data_processing_for_photo:
       runs-on: ubuntu-latest
 
