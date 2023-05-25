@@ -5,17 +5,13 @@ on:
     branches:
       - main
       - dev
-      
-
   workflow_dispatch:
 
 jobs:
   job1:
-    name: job 1
-    data_processing_for_dataset:
-      runs-on: ubuntu-latest
-
-      steps:
+    name: data_processing_for_dataset
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -38,65 +34,10 @@ jobs:
           name: processed_images
           path: FER-2013
 
-    model_training:
-      needs: data_processing
-      runs-on: ubuntu-latest
-
-      steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
-
-      - name: Download processed data artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: processed_data
-          path: path/to/processed/data
-
-      - name: Train model
-        run: python train_model_script.py --data-path path/to/processed/data
-
-      - name: Save trained model as artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: trained_model
-          path: path/to/trained/model
-
-    emotion_recognition:
-      needs: model_training
-      runs-on: ubuntu-latest
-
-      steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
-
-      - name: Download trained model artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: trained_model
-          path: path/to/trained/model
-
-      - name: Process new images
-        run: python process_images_script.py
-
-      - name: Use trained model for emotion recognition
-        run: python emotion_recognition_script.py --model-path path/to/trained/model
-
   job2:
-    name: job 2
-    data_processing_for_photo:
-      runs-on: ubuntu-latest
-
-      steps:
+    name: data_processing_for_photo
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -118,3 +59,54 @@ jobs:
         with:
           name: processed_photo
           path: photo
+
+  model_training:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Download processed data artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: processed_images
+          path: path/to/processed/data
+
+      - name: Train model
+        run: python train_model_script.py --data-path path/to/processed/data
+
+      - name: Save trained model as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: trained_model
+          path: path/to/trained/model
+
+  emotion_recognition:
+    needs: model_training
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Download trained model artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: trained_model
+          path: path/to/trained/model
+
+      - name: Process new images
+        run: python process_images_script.py
+
+      - name: Use trained model for emotion recognition
+        run: python emotion_recognition_script.py --model-path path/to/trained/model
