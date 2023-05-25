@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  data_processing:
+  data_processing_for_dataset:
     runs-on: ubuntu-latest
 
     steps:
@@ -88,5 +88,33 @@ jobs:
 
     - name: Use trained model for emotion recognition
       run: python emotion_recognition_script.py --model-path path/to/trained/model
+
+
+jobs:
+  data_processing_for_dataset:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Process images
+      run: python image_processing_script_for_validation.py
+
+    - name: Save processed data as artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: processed_images
+        path: FER-2013
 
 
