@@ -89,7 +89,7 @@ jobs:
     - name: Use trained model for emotion recognition
       run: python emotion_recognition_script.py --model-path path/to/trained/model
 
-jobs:
+jobs2:
   data_processing_for_photo:
     runs-on: ubuntu-latest
 
