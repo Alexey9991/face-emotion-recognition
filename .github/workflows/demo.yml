@@ -88,7 +88,7 @@ jobs:
           path: path/to/trained/model
 
   emotion_recognition:
-    needs: model_training, job2
+    needs: [model_training, job2]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
