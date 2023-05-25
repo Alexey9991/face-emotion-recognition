@@ -89,7 +89,8 @@ jobs:
     - name: Use trained model for emotion recognition
       run: python emotion_recognition_script.py --model-path path/to/trained/model
 
-  data_processing_for_real_photo:
+jobs:
+  data_processing_for_photo:
     runs-on: ubuntu-latest
 
     steps:
@@ -109,10 +110,8 @@ jobs:
     - name: Process images
       run: python image_processing_script_for_validation.py
 
-    - name: Save processed data as artifact
+    - name: Save processed photo as artifact
       uses: actions/upload-artifact@v2
       with:
-        name: processed_images
+        name: processed_photo
         path: photo
-
-
