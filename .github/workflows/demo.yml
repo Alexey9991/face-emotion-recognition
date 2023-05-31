@@ -52,7 +52,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Process images
-        run: python pytorch.py
+        run: python image_preprocissing_script_for_validation.py
 
       - name: Save processed photo as artifact
         uses: actions/upload-artifact@v2
@@ -76,10 +76,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: processed_images
-          path: path/to/processed/data
+          path: data
 
       - name: Unzip dataset
-        run: unzip processed_images.zip
+        run: unzip data/processed_images.zip
 
       - name: Train model
         run: python pytorch.py --data-path path/to/processed/data
