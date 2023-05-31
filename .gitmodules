@@ -1,0 +1,3 @@
+[submodule "ahri-source"]
+	path = ahri-source
+	url = https://github.com/Alexey9991/ahri-source.git

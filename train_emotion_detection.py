@@ -1,9 +1,3 @@
-# https://youtu.be/P4OevrwTq78
-"""
-Train a deep learning model on facial emotion detection
-
-Dataset from: https://www.kaggle.com/msambare/fer2013
-"""
 
 from keras.preprocessing.image import ImageDataGenerator
 from keras.models import Sequential
