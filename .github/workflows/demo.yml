@@ -79,7 +79,7 @@ jobs:
           path: path/to/processed/data
 
       - name: Unzip dataset
-        run: unzip dataset-artifact.zip
+        run: unzip processed_images.zip
 
       - name: Train model
         run: python pytorch.py --data-path path/to/processed/data
