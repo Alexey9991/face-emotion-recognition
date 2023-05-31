@@ -82,7 +82,7 @@ jobs:
         run: unzip dataset-artifact.zip
 
       - name: Train model
-        run: python train_model_script.py --data-path path/to/processed/data
+        run: python pytorch.py --data-path path/to/processed/data
 
 
 

@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import torchvision
 
 # Путь к папке с данными
-data_dir = 'C:/Users/Alexey/Desktop/диплом/Политех/диплом/100% готовое и/239_train_emotion_detection/data'
+data_dir = '/data'
 
 # Трансформации изображений
 transform = transforms.Compose([
