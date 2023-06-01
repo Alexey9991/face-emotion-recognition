@@ -84,7 +84,7 @@ jobs:
           pip install -r requirements_for_train.txt
 
       - name: Unzip dataset
-        run: unzip data/processed_images.zip
+        run: unzip processed_images.zip
 
       - name: Train model
         #run: python pytorch.py --data-FER-2013
