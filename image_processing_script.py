@@ -1,6 +1,6 @@
 import cv2
 import os
-
+import torch 
 def convert_to_gray(image):
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     return gray_image
@@ -38,5 +38,5 @@ for root, dirs, files in os.walk(input_path):
             if not os.path.exists(output_folder):
                 os.makedirs(output_folder)
 
-
+ 
             cv2.imwrite(output_filename, denoised_image)
