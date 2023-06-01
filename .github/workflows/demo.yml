@@ -83,11 +83,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements_for_train.txt
 
-      #- name: Unzip dataset
-      #  run: unzip /home/runner/work/face-emotion-recognition/face-emotion-recognition/data/processed_images.zip
+      - name: Unzip dataset
+        run: unzip FER-2013/processed_images.zip
 
       - name: Train model
-        run: python pytorch.py --data-/home/runner/work/face-emotion-recognition/face-emotion-recognition/data
+        run: python pytorch.py --data-FER-2013
 
 
 
