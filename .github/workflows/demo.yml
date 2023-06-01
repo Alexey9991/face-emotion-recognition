@@ -78,11 +78,11 @@ jobs:
           name: processed_images
           path: data
 
-      - name: Unzip dataset
-        run: unzip /home/runner/work/face-emotion-recognition/face-emotion-recognition/data/processed_images.zip
+      #- name: Unzip dataset
+      #  run: unzip /home/runner/work/face-emotion-recognition/face-emotion-recognition/data/processed_images.zip
 
       - name: Train model
-        run: python pytorch.py --data-path path/to/processed/data
+        run: python pytorch.py --data-/home/runner/work/face-emotion-recognition/face-emotion-recognition/data
 
 
 
