@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import torchvision
 
 # Путь к папке с данными
-data_dir = '/data'
+data_dir = './'
 
 # Трансформации изображений
 transform = transforms.Compose([
