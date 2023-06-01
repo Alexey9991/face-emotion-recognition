@@ -79,7 +79,7 @@ jobs:
           path: data
 
       - name: Unzip dataset
-        run: unzip data/processed_images.zip
+        run: unzip /home/runner/work/face-emotion-recognition/face-emotion-recognition/data/processed_images.zip
 
       - name: Install dependencies
         run: |
