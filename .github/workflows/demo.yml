@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: processed_images
-          path: data
+          path: FER-2013
 
   job2:
     name: data_processing_for_photo
@@ -78,19 +78,16 @@ jobs:
           name: processed_images
           path: data
 
-      - name: Unzip dataset
-        run: unzip processed_images.zip
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements_for_train.txt
 
-
+      - name: Unzip dataset
+        run: unzip FER-2013/processed_images.zip
 
       - name: Train model
-        #run: python pytorch.py --data-FER-2013
-        run: python pytorch.py --data-path data/FER-2013
+        run: python pytorch.py --data-FER-2013
 
 
 
