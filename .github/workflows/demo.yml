@@ -78,6 +78,11 @@ jobs:
           name: processed_images
           path: data
 
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
       #- name: Unzip dataset
       #  run: unzip /home/runner/work/face-emotion-recognition/face-emotion-recognition/data/processed_images.zip
 
