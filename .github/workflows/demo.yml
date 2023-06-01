@@ -76,10 +76,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: processed_images 
-          path: FER-2013 
+          path: ./FER-2013 
 
       - name: Unzip dataset
-        run: unzip FER-2013/processed_images.zip
+        run: unzip ./FER-2013/processed_images.zip
 
       - name: Install dependencies
         run: |
