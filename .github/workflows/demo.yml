@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: processed_images
-          path: /data
+          path: data
 
   job2:
     name: data_processing_for_photo
@@ -76,7 +76,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: processed_images
-          path: /data
+          path: data
 
       - name: Unzip dataset
         run: unzip processed_images.zip
