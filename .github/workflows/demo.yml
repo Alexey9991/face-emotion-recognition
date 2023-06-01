@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: processed_images
-          path:  FER-2013 
+          path:  ./FER-2013 
 
   job2:
     name: data_processing_for_photo
@@ -76,10 +76,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: processed_images 
-          path: data 
+          path: ./data 
 
       - name: Unzip dataset
-        run: unzip /home/runner/work/face-emotion-recognition/face-emotion-recognition/data/processed_images.zip
+        run: unzip ./data/processed_images.zip
 
       - name: Install dependencies
         run: |
