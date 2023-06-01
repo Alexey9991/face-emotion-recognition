@@ -76,7 +76,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: processed_images
-          path: data
+          path: /home/runner/work/face-emotion-recognition/face-emotion-recognition/data/
 
       - name: Unzip dataset
         run: unzip /home/runner/work/face-emotion-recognition/face-emotion-recognition/data/processed_images.zip
