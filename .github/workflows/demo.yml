@@ -97,7 +97,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: trained_model
-          path: path/to/trained/model
+          path: ./
 
   emotion_recognition:
     needs: [model_training, job2]
