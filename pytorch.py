@@ -49,6 +49,24 @@ class EmotionClassifier(nn.Module):
         x = torch.relu(self.fc1(x))
         x = self.fc2(x)
         return x
+    
+class EmotionClassifier_second(nn.Module):
+    def __init__(self):
+        super(EmotionClassifier, self).__init__()
+        self.conv1 = nn.Conv2d(1, 32, kernel_size=3, stride=1, padding=1)
+        self.conv2 = nn.Conv2d(32, 64, kernel_size=3, stride=1, padding=1)
+        self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
+        self.fc1 = nn.Linear(64 * 12 * 12, 128)
+        self.fc2 = nn.Linear(64 * 12 * 12, 128)
+        self.fc3 = nn.Linear(128, 7)
+
+    def forward(self, x):
+        x = self.pool(torch.relu(self.conv1(x)))
+        x = self.pool(torch.relu(self.conv2(x)))
+        x = x.view(x.size(0), -1)
+        x = torch.relu(self.fc1(x))
+        x = self.fc3(x)
+        return x
 
 model = EmotionClassifier()
 
@@ -57,7 +75,7 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
 # Обучение модели
-num_epochs = 50
+num_epochs = 4
 
 for epoch in range(num_epochs):
     model.train()
@@ -94,5 +112,54 @@ for epoch in range(num_epochs):
           f'Train Loss: {train_loss:.4f}, Train Accuracy: {train_accuracy:.4f}, '
           f'Test Accuracy: {test_accuracy:.4f}')
 
+model_one = test_accuracy
 # Сохранение модели
-torch.save(model.state_dict(), 'emotion_classifier.pt')
+
+
+
+
+
+model_second = EmotionClassifier_second()
+
+num_epochs = 4
+
+for epoch in range(num_epochs):
+    model_second.train()
+    running_loss = 0.0
+    correct_predictions = 0
+
+    for images, labels in train_loader:
+        optimizer.zero_grad()
+        outputs = model_second(images)
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
+
+        running_loss += loss.item()
+        _, predicted = torch.max(outputs.data, 1)
+        correct_predictions += (predicted == labels).sum().item()
+
+    train_loss = running_loss / len(train_loader)
+    train_accuracy = correct_predictions / len(train_dataset)
+
+    # Валидация модели
+    model_second.eval()
+    correct_predictions = 0
+
+    with torch.no_grad():
+        for images, labels in test_loader:
+            outputs = model_second(images)
+            _, predicted = torch.max(outputs.data, 1)
+            correct_predictions += (predicted == labels).sum().item()
+
+    test_accuracy = correct_predictions / len(test_dataset)
+
+    print(f'Epoch [{epoch+1}/{num_epochs}], '
+          f'Train Loss: {train_loss:.4f}, Train Accuracy: {train_accuracy:.4f}, '
+          f'Test Accuracy: {test_accuracy:.4f}')
+
+# Сохранение модели
+if test_accuracy < model_one:
+    torch.save(model_second.state_dict(), 'emotion_classifier.pt')
+else:
+    torch.save(model.state_dict(), 'emotion_classifier.pt')

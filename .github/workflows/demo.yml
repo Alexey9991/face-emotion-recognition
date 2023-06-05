@@ -139,9 +139,33 @@ jobs:
           path: ./
 
 
+ best_model:
+    needs: [model_training_one, job2]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Download trained model artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: trained_model
+          path: path/to/trained/model
+
+      - name: Process new images
+        run: python process_images_script.py
+
+      - name: Use trained model for emotion recognition
+        run: python emotion_recognition_script.py --model-path path/to/trained/model
+
 
   emotion_recognition:
-    needs: [model_training_one, job2]
+    needs: best_model
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
