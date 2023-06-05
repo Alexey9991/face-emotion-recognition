@@ -100,43 +100,43 @@ jobs:
           path: ./
 
     model_training_second:
-    needs: job1
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      needs: job1
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
+        - name: Set up Python
+          uses: actions/setup-python@v2
+          with:
+            python-version: 3.x
 
-      - name: Download processed data artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: processed_images 
-          #path: ./FER-2013 
+        - name: Download processed data artifact
+          uses: actions/download-artifact@v2
+          with:
+            name: processed_images 
+            #path: ./FER-2013 
 
-      #- name: Unzip dataset
-      #  run: unzip ./FER-2013/processed_images.zip
+        #- name: Unzip dataset
+        #  run: unzip ./FER-2013/processed_images.zip
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements_for_train.txt
-
-
-
-      - name: Train model
-        run: python pytorch.py --data-FER-2013
+        - name: Install dependencies
+          run: |
+            python -m pip install --upgrade pip
+            pip install -r requirements_for_train.txt
 
 
 
-      - name: Save trained model as artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: trained_model
-          path: ./
+        - name: Train model
+          run: python pytorch.py --data-FER-2013
+
+
+
+        - name: Save trained model as artifact
+          uses: actions/upload-artifact@v2
+          with:
+            name: trained_model
+            path: ./
 
 
 
