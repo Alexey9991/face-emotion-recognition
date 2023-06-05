@@ -99,7 +99,7 @@ jobs:
           name: trained_model
           path: ./
 
-    model_training_second:
+  model_training_second:
       needs: job1
       runs-on: ubuntu-latest
       steps:
