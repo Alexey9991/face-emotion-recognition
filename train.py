@@ -109,7 +109,7 @@ for epoch in range(num_epochs):
 
 model_one = test_accuracy
 # Сохранение первой модели
-torch.save(model.state_dict(), 'emotion_classifier.pt')
+#torch.save(model.state_dict(), 'emotion_classifier.pt')
 
 model_second = EmotionClassifier_second()
 
@@ -155,7 +155,9 @@ for epoch in range(num_epochs):
 # Сохранение второй модели, если ее точность выше первой модели
 if test_accuracy > model_one:
     torch.save(model_second.state_dict(), 'emotion_classifier.pt')
+    print("first model is better, so it is saved.")
 else:
-    print("First model is better, so it is saved.")
+    print("second model is better, so it is saved.")
+    torch.save(model.state_dict(), 'emotion_classifier.pt')
     # You can keep the first model or delete the previously saved 'emotion_classifier.pt' file
 
