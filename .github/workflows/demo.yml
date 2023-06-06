@@ -117,7 +117,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: trained_model
-          path: ./
+          
 
       #- name: Process new images
       #  run: python process_images_script.py
