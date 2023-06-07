@@ -158,6 +158,6 @@ if test_accuracy > model_one:
     print("first model is better, so it is saved.")
 else:
     print("second model is better, so it is saved.")
-    torch.save(model.state_dict(), './model/emotion_classifier.pt')
+    torch.save(model.state_dict(), './emotion_classifier.pt')
     # You can keep the first model or delete the previously saved 'emotion_classifier.pt' file
 
