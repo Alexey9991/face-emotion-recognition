@@ -87,7 +87,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: trained_model
-          path: ./
+          path: ./model
 
 
  
@@ -107,7 +107,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: trained_model
-          path: ./
+          path: ./model
 
 
           
