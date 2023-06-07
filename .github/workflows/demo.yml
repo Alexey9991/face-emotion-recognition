@@ -55,7 +55,7 @@ jobs:
       - name: Save processed photo as artifact
         uses: actions/upload-artifact@v2
         with:
-          name: processed_photo
+          name: processed_images
           path: FER-2013
 
   model_training_one:
