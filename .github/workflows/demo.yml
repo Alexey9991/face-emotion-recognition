@@ -90,7 +90,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: trained_model
-          path: ./
+          path: FER-2013
 
 
  
@@ -109,7 +109,7 @@ jobs:
       - name: Download trained model artifact
         uses: actions/download-artifact@v2
         with:
-          name: processed_images
+          name: trained_model
 
           
 
