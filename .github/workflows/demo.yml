@@ -50,7 +50,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Process images
-        run: python image_preprocissing_script_for_validation.py
+        run: python image_preprocessing_script_for_validation.py
 
       - name: Save processed photo as artifact
         uses: actions/upload-artifact@v2
