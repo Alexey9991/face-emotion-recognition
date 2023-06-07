@@ -55,7 +55,7 @@ jobs:
       - name: Save processed photo as artifact
         uses: actions/upload-artifact@v2
         with:
-          name: processed_images
+          name: processed_photo
           path: FER-2013
 
   model_training_one:
@@ -73,7 +73,7 @@ jobs:
       - name: Download processed data artifact
         uses: actions/download-artifact@v2
         with:
-          name: processed_photo
+          name: processed_images
 
       - name: Install dependencies
         run: |
