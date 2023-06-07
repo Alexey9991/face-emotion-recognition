@@ -95,7 +95,7 @@ jobs:
 
  
   emotion_recognition:
-    needs: ['model_training_one', job2]
+    needs: ['model_training_one', 'job2']
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
