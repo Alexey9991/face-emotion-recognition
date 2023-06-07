@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: processed_images
-          path: FER-2013 
+          path: FER-2013
 
   job2:
     name: data_processing_for_photo
@@ -86,8 +86,6 @@ jobs:
       - name: Train model
         run: python train.py --data-FER-2013
 
-
-
       - name: Save trained model as artifact
         uses: actions/upload-artifact@v2
         with:
@@ -97,7 +95,7 @@ jobs:
 
  
   emotion_recognition:
-    needs: ['model_training_one']
+    needs: ['model_training_one', data_preprocessing_for_photo]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -112,7 +110,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: trained_model
-          path: ./
+
           
 
       #- name: Process new images
