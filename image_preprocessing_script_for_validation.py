@@ -10,7 +10,7 @@ def remove_noise(image):
     return denoised_image
 
 input_path = "data_for_recognition"
-output_path = "data"
+output_path = "data_for_recognition"
 
 
 if not os.path.exists(output_path):
