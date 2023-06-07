@@ -4,17 +4,17 @@ from torchvision.transforms import transforms
 import numpy as np
 
 # Загрузка модели классификатора эмоций
-model = torch.load('path_to_emotion_model.pt')
+model = torch.load('emotion_classifier.pt')
 model.eval()
 
 # Список классов эмоций
 emotion_labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
 
 # Загрузка каскадного классификатора для определения лица
-face_cascade = cv2.CascadeClassifier('path_to_face_cascade.xml')
+face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 # Загрузка изображения
-image = cv2.imread('path_to_image.jpg')
+image = cv2.imread('data_for_recognition/face-people-portrait-actor-hair-Person-Nicolas-Cage-man-beard-look-male-hairstyle-facial-hair-bristle-579421.jpg')
 
 # Преобразование изображения в градации серого
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -40,7 +40,7 @@ for (x, y, w, h) in faces:
     # Отображение результата на изображении
     cv2.rectangle(image, (x, y), (x + w, y + h), (255, 0, 0), 2)
     cv2.putText(image, emotion_label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 0, 0), 2)
-
+print(emotion_label)
 # Отображение и сохранение результата
 cv2.imshow('Emotion Detection', image)
 cv2.waitKey(0)
