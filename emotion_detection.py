@@ -4,7 +4,8 @@ from torchvision.transforms import transforms
 import numpy as np
 
 # Загрузка модели классификатора эмоций
-model = torch.load('emotion_classifier.pt')
+checkpoint = torch.load('emotion_classifier.pt')
+model = checkpoint['model']
 model.eval()
 
 # Список классов эмоций
