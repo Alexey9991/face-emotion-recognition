@@ -5,11 +5,11 @@ import numpy as np
 
 # Загрузка модели классификатора эмоций
 checkpoint = torch.load('emotion_classifier.pt')
-model = checkpoint['model']
-model.eval()
+
 
 # Список классов эмоций
-emotion_labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
+#emotion_labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
+emotion_labels = ['Angry']
 
 # Загрузка каскадного классификатора для определения лица
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
