@@ -56,7 +56,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: processed_photo
-          path: photo
+          path: ./data
 
   model_training_one:
     needs: job1
@@ -91,7 +91,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: trained_model
-          path: model
+          path: ./model
 
 
  
