@@ -73,7 +73,7 @@ jobs:
       - name: Download processed data artifact
         uses: actions/download-artifact@v2
         with:
-          name: processed_images 
+          name: processed_photo
 
       - name: Install dependencies
         run: |
