@@ -89,7 +89,7 @@ jobs:
 
 
       - name: Train model
-        run: python train.py --data-FER-2013
+        run: python pytorch.py --data-FER-2013
 
 
 
