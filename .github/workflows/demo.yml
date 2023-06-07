@@ -56,7 +56,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: processed_photo
-          path: ./data
+          path: FER-2013
 
   model_training_one:
     needs: job1
