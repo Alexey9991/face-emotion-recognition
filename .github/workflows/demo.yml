@@ -117,4 +117,4 @@ jobs:
       #  run: python process_images_script.py
 
       - name: Use trained model for emotion recognition
-        run: python emotion_detection.py --model-path ./
+        run: python emotion_detection.py --data-FER-2013
