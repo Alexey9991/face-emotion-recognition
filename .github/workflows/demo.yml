@@ -115,6 +115,8 @@ jobs:
 
       #- name: Process new images
       #  run: python process_images_script.py
+      - name: Install dependencies
+        run: pip install -r requirements_for_detection.txt
 
       - name: Use trained model for emotion recognition
         run: python emotion_detection.py --data-FER-2013
