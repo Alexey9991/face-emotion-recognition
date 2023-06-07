@@ -94,10 +94,10 @@ jobs:
 
 
       - name: Save trained model as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: trained_model
-          path: model
+       
 
 
  
@@ -114,7 +114,7 @@ jobs:
           python-version: 3.x
 
       - name: Download trained model artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v2
         with:
           name: trained_model
           
