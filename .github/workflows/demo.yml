@@ -83,6 +83,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements_for_train.txt
+
       - name: Train model
         run: python train.py --data-FER-2013
 
@@ -90,7 +91,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: trained_model
-          path: FER-2013
+          path: data
 
 
  
@@ -119,4 +120,4 @@ jobs:
         run: pip install -r requirements_for_detection.txt
 
       - name: Use trained model for emotion recognition
-        run: python emotion_detection.py --data-FER-2013
+        run: python emotion_detection.py --data-data
