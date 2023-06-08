@@ -27,6 +27,8 @@
 
 ![image](https://user-images.githubusercontent.com/97290990/233087666-3e865432-2af5-48a3-96fc-4c72378bd1ba.png)
 
-![image](/диаграмма активностей.png)
+
+![диаграмма активностей](https://github.com/Alexey9991/face-emotion-recognition/assets/97290990/30efbae6-453c-41a9-97f9-70b76e9a3a28)
+![описание архитектуры](https://github.com/Alexey9991/face-emotion-recognition/assets/97290990/1fee353a-f4c5-4dd9-9ae3-ca898e8e321d)
 
 
