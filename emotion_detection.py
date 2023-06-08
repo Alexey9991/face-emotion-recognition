@@ -32,7 +32,7 @@ with open('emotion_classes.txt', 'r') as f:
     classes = [line.strip() for line in f.readlines()]
 
 # Получение предсказанного класса
-_, predicted_idx = torch.max(output, 1)
+_, predicted_idx = torch.max(output, 7)
 predicted_class = classes[predicted_idx.item()]
 
 # Вывод предсказанного класса
