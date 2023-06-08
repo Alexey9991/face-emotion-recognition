@@ -40,7 +40,7 @@ print(f'Predicted class: {predicted_class}')
 
 # Создание изображения с надписью
 
-
+'''
 image_with_text = image.copy()
 draw = ImageDraw.Draw(image_with_text)
 text = predicted_class
@@ -55,3 +55,7 @@ output_path = './'
 image_with_text.save(output_path)
 # Вывод пути сохраненного изображения
 print(f'Saved image with text: {output_path}')
+'''
+
+with open('predict.txt', 'w') as f:
+    f.write(predicted_class)

@@ -125,4 +125,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: photo
-          path: processed_image.jpg
+          path: predict.txt
