@@ -51,7 +51,7 @@ text_y = (image_with_text.height - text_height) // 2
 draw.text((text_x, text_y), text, fill=(255, 255, 255))
 
 # Сохранение изображения с надписью
-output_path = './data_for_recognition/1_with_text.jpg'
+output_path = './data_for_recognition'
 image_with_text.save(output_path)
 # Вывод пути сохраненного изображения
 print(f'Saved image with text: {output_path}')
