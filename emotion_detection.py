@@ -40,7 +40,7 @@ print(f'Predicted class: {predicted_class}')
 
 output_image = image.copy()
 draw = ImageDraw.Draw(output_image)
-font = ImageFont.truetype('arial.ttf', 24)  # Выбор шрифта и размера текста
+font = ImageFont.load_default().font # Выбор шрифта и размера текста
 text = f'Predicted class: {predicted_class}'
 text_width, text_height = draw.textsize(text, font=font)
 text_position = (10, 10)  # Позиция текста на изображении
