@@ -119,3 +119,10 @@ jobs:
 
       - name: Use trained model for emotion recognition
         run: python emotion_detection.py --data-data
+
+
+      - name: Save photo as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: photo
+          path: processed_image.jpg
