@@ -38,17 +38,20 @@ predicted_class = classes[predicted_idx.item()]
 # Вывод предсказанного класса
 print(f'Predicted class: {predicted_class}')
 
-output_image = image.copy()
-draw = ImageDraw.Draw(output_image)
-font = ImageFont.load_default().font # Выбор шрифта и размера текста
-text = f'Predicted class: {predicted_class}'
-text_width, text_height = draw.textsize(text, font=font)
-text_position = (10, 10)  # Позиция текста на изображении
-text_color = (255, 255, 255)  # Цвет текста (белый)
-draw.rectangle((text_position[0], text_position[1], text_position[0] + text_width, text_position[1] + text_height),
-               fill=(0, 0, 0))  # Заливка прямоугольника под текстом черным цветом
-draw.text(text_position, text, font=font, fill=text_color)
+# Создание изображения с надписью
+image_with_text = image.copy()
+draw = ImageDraw.Draw(image_with_text)
+font_path = '/path/to/font.ttf'  # Укажите полный путь к файлу шрифта на вашей системе
+font_size = 24
+font = ImageFont.truetype(font_path, font_size)
+text_width, text_height = draw.textsize(predicted_class, font=font)
+text_x = (image_with_text.width - text_width) // 2
+text_y = (image_with_text.height - text_height) // 2
+draw.text((text_x, text_y), predicted_class, font=font, fill=(255, 255, 255))
 
 # Сохранение изображения с надписью
-output_image_path = './processed_image.jpg'
-output_image.save(output_image_path)
+output_path = './data_for_recognition/1_with_text.jpg'
+image_with_text.save(output_path)
+
+# Вывод пути сохраненного изображения
+print(f'Saved image with text: {output_path}')
