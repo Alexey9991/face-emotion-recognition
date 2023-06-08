@@ -39,18 +39,19 @@ predicted_class = classes[predicted_idx.item()]
 print(f'Predicted class: {predicted_class}')
 
 # Создание изображения с надписью
+
+
 image_with_text = image.copy()
 draw = ImageDraw.Draw(image_with_text)
-
-font = ImageFont.load_default().font
-text_width, text_height = draw.textsize(predicted_class, font=font)
+text = predicted_class
+font_size = 24
+text_width, text_height = draw.textsize(text)
 text_x = (image_with_text.width - text_width) // 2
 text_y = (image_with_text.height - text_height) // 2
-draw.text((text_x, text_y), predicted_class, font=font, fill=(255, 255, 255))
+draw.text((text_x, text_y), text, fill=(255, 255, 255))
 
 # Сохранение изображения с надписью
 output_path = './data_for_recognition/1_with_text.jpg'
 image_with_text.save(output_path)
-
 # Вывод пути сохраненного изображения
 print(f'Saved image with text: {output_path}')
