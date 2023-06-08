@@ -41,9 +41,8 @@ print(f'Predicted class: {predicted_class}')
 # Создание изображения с надписью
 image_with_text = image.copy()
 draw = ImageDraw.Draw(image_with_text)
-font_path = '/path/to/font.ttf'  # Укажите полный путь к файлу шрифта на вашей системе
-font_size = 24
-font = ImageFont.truetype(font_path, font_size)
+
+font = ImageFont.load_default().font
 text_width, text_height = draw.textsize(predicted_class, font=font)
 text_x = (image_with_text.width - text_width) // 2
 text_y = (image_with_text.height - text_height) // 2
