@@ -124,5 +124,5 @@ jobs:
       - name: Save photo as artifact
         uses: actions/upload-artifact@v2
         with:
-          name: photo
+          name: predict
           path: predict.txt
