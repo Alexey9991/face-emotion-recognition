@@ -27,6 +27,6 @@
 
 ![image](https://user-images.githubusercontent.com/97290990/233087666-3e865432-2af5-48a3-96fc-4c72378bd1ba.png)
 
-![image](диаграмма активностей.png)
+![image](/диаграмма активностей.png)
 
 
