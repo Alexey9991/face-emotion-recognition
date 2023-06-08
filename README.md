@@ -27,6 +27,6 @@
 
 ![image](https://user-images.githubusercontent.com/97290990/233087666-3e865432-2af5-48a3-96fc-4c72378bd1ba.png)
 
-![image]([https://user-images.githubusercontent.com/97290990/233087666-3e865432-2af5-48a3-96fc-4c72378bd1ba.png](https://github.com/Alexey9991/face-emotion-recognition/blob/1d8c47f4818823c89f8701cb4080277926f90b1e/%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D1%8B.png))
+![image](диаграмма активностей.png)
 
-![image](https://user-images.githubusercontent.com/97290990/233087666-3e865432-2af5-48a3-96fc-4c72378bd1ba.png)
+
